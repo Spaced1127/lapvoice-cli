@@ -1,0 +1,43 @@
+# LapVoice - settings
+#
+# Everything here is optional; delete any line to use its default.
+# TIP: to keep your own settings when you update the project, copy this file to
+# "config.local.yaml" and edit that instead (it overrides this one and is not
+# touched by updates). Use spaces, not tabs.
+
+ollama:
+  host: "http://localhost:11434"   # can point at another PC on your network
+  model: "llama3.2:3b"             # see the README table to pick one for your VRAM
+  temperature: 0.4
+  max_tokens: 60                   # tips are short on purpose
+  num_ctx: 2048                    # context window. Keep small: it is the biggest VRAM saver
+  keep_alive: "30m"                # keep the model loaded between laps
+  timeout_seconds: 12
+
+coach:
+  use_llm: true                    # false = simple built-in tips, no AI model (zero VRAM)
+  fallback_to_template: true       # if the model is unreachable, use a built-in tip
+  units: "kmh"                     # "kmh" or "mph"
+
+telemetry:
+  poll_hz: 60                      # how often to read iRacing (10-120)
+
+analysis:
+  num_segments: 20                 # the lap is compared in this many chunks
+  min_valid_lap_seconds: 15
+  max_valid_lap_seconds: 900
+  top_findings_to_report: 2        # how many problem spots feed each tip
+  min_time_loss_seconds: 0.04      # ignore losses smaller than this (noise)
+  ignore_offtrack_laps: true       # laps that went off track are not analysed
+
+voice:
+  enabled: true
+  rate: 185                        # words per minute
+  volume: 1.0
+  voice_name_contains: ""          # e.g. "Zira" to pick a specific Windows voice
+
+behavior:
+  tip_every_n_laps: 1              # raise this on very short tracks
+  speak_baseline_message: true
+  announce_new_best: true
+  speak_session_summary_on_exit: true

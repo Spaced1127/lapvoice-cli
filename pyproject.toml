@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lapvoice-cli"
+version = "1.2.0"
+description = "Fully local, spoken AI lap coaching for iRacing, powered by Ollama"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "pyirsdk>=1.3.5; sys_platform == 'win32'",
+    "pyttsx3>=2.90",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+    "cryptography>=42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+iracing-coach = "iracing_coach.app:main"
+
+[tool.setuptools.packages.find]
+include = ["iracing_coach*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+config.local.yaml
+dist/
+.venv-build/
+*.log
+.env
+
+# Licensing: the private signing key and your ledger must NEVER be committed
+admin_keys/
+*.pem
+*.pem.bak
+license.key
+license_state.json
+revocations.json
+
+# Activation server: its key, certificate and database are secrets/state, never commit them
+server/data/
+*.db
+*.db-wal
+*.db-shm
+server_private_key.pem
