@@ -7,7 +7,7 @@ After each lap it compares you to your best lap of the session, finds where you 
 tells you through your speakers.
 
 This repository is the free command-line coach. The desktop app - movable overlays, spoken tips
-and a track map that learns itself - is a separate, paid product: <https://lapvoice.gg>.
+and a track map that learns itself - is a separate, paid product: <https://lapvoice.com>.
 
 ## Requirements
 
